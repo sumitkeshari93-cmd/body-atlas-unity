@@ -111,19 +111,15 @@ namespace BodyAtlas
                 if (_dragging && Input.GetMouseButton(0))
                 {
                     Vector2 cur = Input.mousePosition;
-                    Vector2 delta = cur - _touchStartPos;
-                    if (delta.magnitude > tapMoveThresholdPx) _movedBeyondTap = true;
+                    Vector2 total = cur - _touchStartPos;
+                    if (total.magnitude > tapMoveThresholdPx) _movedBeyondTap = true;
                     if (_movedBeyondTap)
                     {
-                        _vyaw += delta.x * rotateSensitivity * 0.35f / Mathf.Max(dt, 0.008f) * 0.016f;
-                        _vpitch -= delta.y * rotateSensitivity * 0.35f / Mathf.Max(dt, 0.008f) * 0.016f;
-                        // Use frame delta for smoother feel
                         Vector2 frame = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
                         _vyaw = frame.x * rotateSensitivity * 60f;
                         _vpitch = -frame.y * rotateSensitivity * 60f;
                         yaw += _vyaw;
                         pitch += _vpitch;
-                        _touchStartPos = cur;
                     }
                 }
                 if (Input.GetMouseButtonUp(0) && _dragging)

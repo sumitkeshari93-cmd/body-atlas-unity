@@ -84,3 +84,10 @@ APK output: `/workspace/artifacts/BodyAtlasUnity-debug.apk`
 ## Quality note
 
 This is an **open anatomy atlas** for learning layers and structure names. It is intentionally above low-quality placeholder demos, and intentionally not a commercial photogrammetry product.
+
+
+## Current build blocker (this machine)
+
+APK batchmode requires an activated Unity Editor license. Android Build Support **is installed**. See `BUILD_STATUS.md`.
+
+Activate Unity Personal via Hub, then re-run the batchmode command above → APK at `/workspace/artifacts/BodyAtlasUnity-debug.apk`.
